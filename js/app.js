@@ -8,16 +8,10 @@ $(document).ready(function () {
         var itemStr = localStorage.getItem(id);
         var item = JSON.parse(itemStr);
         
-        addToInCart(item.id);
+        addToInCart(item);
         
         console.log(item);
-        if (!item.inCart) {
-            item.timesAdded++;
-            item.inCart = true;
-        } 
-        console.log(item);
-        // Update item in localstorage
-        addItemToLocalStorage(item);
+        
     });
 
     // Listen to exchange rate updates
@@ -44,7 +38,7 @@ function addItemForSale(item) {
     var shekels = item.price * shekelRate;
     row.find(".item-id").html(item.id);
     row.find(".item-name").html(item.name);
-    row.find(".item-price").html(item.price + "$<br>" + shekels + "&#8362");
+    row.find(".item-price").html(item.price + "$<br>" + (Math.round(shekels * 100) / 100) + "&#8362");
     row.find(".item-state").html(item.state);
     row.find(".item-image img").attr("src", item.imgUrl);
     $("#items tbody").append(row);
@@ -54,6 +48,13 @@ function addItemForSale(item) {
 }
 
 function addItemToLocalStorage(item) {
+    if (!localStorage.getItem(item.id)) {
+        localStorage.setItem(item.id, JSON.stringify(item));
+    }
+    
+}
+
+function updateItemInLocalStorage(item) {
     localStorage.setItem(item.id, JSON.stringify(item));
 }
 
@@ -64,18 +65,22 @@ function updatePrices() {
         var item = JSON.parse(itemStr);
         var shekelRate = localStorage.getItem("shekel");
         var shekels = item.price * shekelRate;
-        $(this).find(".item-price").html(item.price + "$<br>" + shekels + "&#8362");
+        $(this).find(".item-price").html(item.price + "$<br>" + (Math.round(shekels * 100) / 100) + "&#8362");
     });
 }
 
-function addToInCart(id) {
+function addToInCart(item) {
     var inCartIdsJson = localStorage.getItem("inCartIds") || "[]";
     var inCartIds = JSON.parse(inCartIdsJson);
     var index = inCartIds.findIndex(function (currId) {
-        return currId === id;
+        return currId === item.id;
     });
     if (index === -1) {
-        inCartIds.push(id);
+        inCartIds.push(item.id);
+        item.timesAdded = item.timesAdded === undefined? 0 : item.timesAdded + 1;
+        item.inCart = true;
     }
     localStorage.setItem("inCartIds", JSON.stringify(inCartIds));
+    // Update item in localstorage
+    updateItemInLocalStorage(item);
 }

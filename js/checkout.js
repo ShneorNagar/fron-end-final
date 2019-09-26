@@ -8,7 +8,9 @@ $(document).ready(function () {
             var checkCardWorker = new Worker("./js/checkCard.js");
             checkCardWorker.addEventListener("message", function (e) {
                 if (e.data === "VALID") {
-                    $(".result").html("Purchase successful!");
+                    var sum = localStorage.getItem("sum");
+                    var shekelRate = localStorage.getItem("shekel");
+                    $(".result").html("Purchase successful! You paid " + Math.round(sum * shekelRate) + "&#8362");
                 } else {
                     $(".result").html(e.data + "%");
                 }
