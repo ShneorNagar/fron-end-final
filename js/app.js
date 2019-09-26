@@ -15,6 +15,13 @@ $(document).ready(function () {
         // Update item in localstorage
         addItemToLocalStorage(item);
     });
+
+    // Listen to exchange rate updates
+    var source = new EventSource("/exchange/stream");
+    source.addEventListener("shekel", function (e) {
+        localStorage.setItem("shekel", e.data);
+        updatePrices();
+    });
 });
 
 function loadItems() {
@@ -28,7 +35,8 @@ function loadItems() {
 // Adds item to items table and to localstorage.
 function addItemForSale(item) {
     var row = $(".templates .item-row").clone();
-    var shekels = item.price * 4;
+    var shekelRate = localStorage.getItem("shekel") || 4;
+    var shekels = item.price * shekelRate;
     row.find(".item-id").html(item.id);
     row.find(".item-name").html(item.name);
     row.find(".item-price").html(item.price + "$<br>" + shekels + "&#8362");
@@ -43,4 +51,15 @@ function addItemForSale(item) {
 
 function addItemToLocalStorage(item) {
     localStorage.setItem(item.id, JSON.stringify(item));
+}
+
+function updatePrices() {
+    $("#items .item-row").each(function () {
+        var id = $(this).find(".item-id").html();
+        var itemStr = localStorage.getItem(id);
+        var item = JSON.parse(itemStr);
+        var shekelRate = localStorage.getItem("shekel");
+        var shekels = item.price * shekelRate;
+        $(this).find(".item-price").html(item.price + "$<br>" + shekels + "&#8362");
+    });
 }
