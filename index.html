@@ -1,45 +1,57 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>eShop</title>
+    <meta charset="UTF-8">
+    <title>eShop</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	<link rel="stylesheet" href="vendors/odometer/odometer-theme-default.css" />
-	<link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendors/odometer/odometer-theme-default.css" />
+    <link rel="stylesheet" href="style/style.css">
 </head>
-<body>	
-	<!-- your html here -->
-	<table id="items" class="table">
-		<thead>
-			<tr>
-				<th>NAME</th><th>PRICE</th><th>STATE</th><th>IMAGE</th>
-			</tr>
-		</thead>
-		<tbody></tbody>
-	</table>
 
-	<div class="templates">
-		<table>
-			<tr class="item-row">
+<body>
+    <!-- your html here -->
+    <table id="items" class="table">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>STATE</th>
+                <th>IMAGE</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="templates">
+        <table>
+            <tr class="item-row">
                 <td class="item-id"></td>
-				<td class="item-name"></td>
-				<td class="item-price"></td>
+                <td class="item-name"></td>
+                <td class="item-price"></td>
                 <td class="item-state"></td>
                 <td class="item-image"><img></td>
                 <td><button class="add-to-cart">add to cart</button></td>
-			</tr>
-		</table>
+                <td>
+                    <button><a href="./shpooingCart.html">shopping cart</a></button>
+                </td>
+            </tr>
+        </table>
     </div>
-    <a href="checkout.html">checkout</a>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	<script src="vendors/odometer/odometer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="vendors/odometer/odometer.js"></script>
 
-	<script src="js/exchangeRate.js"></script>
-	<script src="js/app.js"></script>
+    <script src="js/exchangeRate.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

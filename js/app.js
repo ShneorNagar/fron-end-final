@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //loadInCartHolders();
     loadItems();
     $(document).on("click", ".add-to-cart", function (e) {
         var row = $(this).parent().parent();
@@ -6,6 +7,9 @@ $(document).ready(function () {
         
         var itemStr = localStorage.getItem(id);
         var item = JSON.parse(itemStr);
+        
+        addToInCart(item.id);
+        
         console.log(item);
         if (!item.inCart) {
             item.timesAdded++;
@@ -34,6 +38,7 @@ function loadItems() {
 
 // Adds item to items table and to localstorage.
 function addItemForSale(item) {
+
     var row = $(".templates .item-row").clone();
     var shekelRate = localStorage.getItem("shekel") || 4;
     var shekels = item.price * shekelRate;
@@ -42,10 +47,9 @@ function addItemForSale(item) {
     row.find(".item-price").html(item.price + "$<br>" + shekels + "&#8362");
     row.find(".item-state").html(item.state);
     row.find(".item-image img").attr("src", item.imgUrl);
-    item.inCart = false;
-    item.timesAdded = 0;
     $("#items tbody").append(row);
     
+
     addItemToLocalStorage(item);
 }
 
@@ -62,4 +66,16 @@ function updatePrices() {
         var shekels = item.price * shekelRate;
         $(this).find(".item-price").html(item.price + "$<br>" + shekels + "&#8362");
     });
+}
+
+function addToInCart(id) {
+    var inCartIdsJson = localStorage.getItem("inCartIds") || "[]";
+    var inCartIds = JSON.parse(inCartIdsJson);
+    var index = inCartIds.findIndex(function (currId) {
+        return currId === id;
+    });
+    if (index === -1) {
+        inCartIds.push(id);
+    }
+    localStorage.setItem("inCartIds", JSON.stringify(inCartIds));
 }
