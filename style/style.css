@@ -1,0 +1,9 @@
+/* Place your custom CSS here */
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.templates {
+    display: none;
+}

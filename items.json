@@ -1,0 +1,61 @@
+[{
+	"id" : 1,
+	"name": "iPhone 3S",
+	"price": 360,
+	"state": "Used",
+	"imgUrl": "http://www.consolecentral.com.au/wp-content/uploads/2012/03/cracked-screen-iphone-3gs-toowoomba-repair.jpg"
+}, {
+	"id" : 2,
+	"name": "Rubber Duck",
+	"price": 9.99,
+	"state": "New",
+	"imgUrl": "http://free-icon-download.com/modules/PDdownloads/images/screenshots/free-icon-download-rubber-duck-illustration.png"
+}, {
+	"id" : 3,
+	"name": "F16",
+	"price": 1000,
+	"state": "Pre-War",
+	"imgUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/F16_drawing.svg/766px-F16_drawing.svg.png"
+}, {
+	"id" : 4,
+	"name": "Moldova",
+	"price": 0.3,
+	"state": "Used",
+	"imgUrl": "http://wwwnc.cdc.gov/travel/images/map-moldova.png"
+}, {
+	"id" : 5,
+	"name": "Bowl of Rice",
+	"price": 1.3,
+	"state": "Cooked",
+	"imgUrl": "https://media.istockphoto.com/photos/rice-bowl-picture-id485896268?k=6&m=485896268&s=612x612&w=0&h=8Xv6w7oLR1_GhNucNdMmhrvZJnyc6WJ_ZRo66Mwroyg="
+}, {
+	"id" : 6,
+	"name": "Pass this course",
+	"price": 20,
+	"state": "Impossible",
+	"imgUrl": "https://pbs.twimg.com/profile_images/873937938467491844/9rfcI2u9.jpg"
+}, {
+	"id" : 7,
+	"name": "Left Kidney",
+	"price": 19.99,
+	"state": "Recently Used",
+	"imgUrl": "http://beanstersbytes.com/wp-content/uploads/2013/03/Kidney_Bean.png"
+}, {
+	"id" : 8,
+	"name": "Nobel Prize",
+	"price": 92.03,
+	"state": "New",
+	"imgUrl": "https://upload.wikimedia.org/wikipedia/en/e/ed/Nobel_Prize.png"
+}, {
+	"id" : 9,
+	"name": "Apartment in Tel Aviv",
+	"price": 10,
+	"state": "Renovated",
+	"imgUrl": "http://www.lifewithcats.tv/wp-content/uploads/2016/12/e16e11298d24f49f8426cef1d5ec0769.jpg"
+}, {
+	"id" : 10,
+	"name": "One Dollar Bill",
+	"price": 1,
+	"state": "New",
+	"imgUrl": "http://upload.wikimedia.org/wikipedia/commons/9/96/US_one_dollar_bill,_reverse,_series_2009.jpg"
+}]
